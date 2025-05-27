@@ -265,7 +265,7 @@ async function setupVite(app2, server) {
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
-    allowedHosts: true
+    allowedHosts: ["localhost"]
   };
   const vite = await createViteServer({
     ...vite_config_default,
@@ -287,7 +287,6 @@ async function setupVite(app2, server) {
       const clientTemplate = path2.resolve(
         import.meta.dirname,
         "..",
-        "client",
         "index.html"
       );
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
